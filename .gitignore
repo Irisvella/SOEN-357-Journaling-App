@@ -1,0 +1,76 @@
+# Dependency directories
+node_modules/
+.expo/
+
+# Packager / bundler cache
+.haste_cache/
+.metro/
+.metro-cache/
+
+# Build output directories
+ios/build/
+android/.gradle/
+android/build/
+android/app/build/
+
+# Various log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variable files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignoring Expo SDK files (if using Expo)
+web-build/
+ios/ExpoKitApp.xcarchive/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.pkg
+google-services.json
+GoogleService-Info.plist
+
+# Keystore files for Android signing
+android/keystore.properties
+android/app/google-services.json
+
+# Xcode
+ios/*.xcworkspace
+ios/*.xcodeproj
+ios/*.xcuserstate
+ios/*.xcscmblueprint
+
+# Ignore all logfiles and temp files
+*.log
+*.tmp
+*.temp
+
+# JetBrains IDEs (e.g., IntelliJ, WebStorm) project files
+.idea/
+*.iml
+
+# Visual Studio Code
+.vscode/
+
+# macOS files
+.DS_Store
+
+# Yarn
+.yarn/*
+!.yarn/patches/
+!.yarn/plugins/
+!.yarn/releases/
+!.yarn/sdks/
+!.yarn/versions/
+.pnp.*
+
+# Others
+*.swp
+*~
