@@ -1,42 +1,23 @@
+// App.js
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import WelcomePage from './src/Screens/WelcomePage'; // Adjust path as necessary
+import GuidedJournalPage from './src/Screens/GuidedJournalPage'; // Adjust path as necessary
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import Svg, { Path } from 'react-native-svg';
 
-import GuidedJournalPage from "./guided-journal/GuidedJournalPage";
+const Stack = createStackNavigator();
 
-const PlaceholderImage = require('./assets/images/file.png');
-
-export default function App() {
+function App() {
   return (
-    <View style={styles.main}>
-      <Svg 
-        style={styles.svg}
-        width={40}
-        height={40}
-        viewBox="0 0 20 20"
-        stroke="#744C4C"
-        strokeLinecap="round" 
-        strokeLinejoin="round"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        strokeWidth={2}
-      >
-        <Path d="M6 12H18M6 12L11 7M6 12L11 17"/>
-      </Svg>
-      <View style={styles.container}>
-        <GuidedJournalPage />
-      </View>
+    <NavigationContainer>
       <StatusBar style="auto" />
-    </View>
+      <Stack.Navigator initialRouteName="WelcomePage">
+        <Stack.Screen name="WelcomePage" component={WelcomePage} options={{ title: 'Welcome' }} />
+        <Stack.Screen name="GuidedJournalPage" component={GuidedJournalPage} options={{ title: 'Guided Journal' }} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  main: {
-    backgroundColor: '#FFF6EF',
-  },
-  svg: {
-    marginTop: 50,
-    marginLeft: 10,
-  }
-});
+export default App;
