@@ -48,7 +48,7 @@ function WelcomePage({ navigation }) {
         <TouchableOpacity onPress={() => navigation.navigate("Goals")}>
           <Text>Goals</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("JournalEntries")}>
+        <TouchableOpacity onPress={() => navigation.navigate('JournalEntriesScreen')}>
           <Text>Journal Entries</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("MoodTracker")}>
