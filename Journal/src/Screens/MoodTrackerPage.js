@@ -48,7 +48,7 @@ const MoodTrackerPage = ({ navigation }) => {
 
   const saveMoodEntry = () => {
     const moodEntry = {
-      mood: selectedMood ? selectedMood-2 : "Not selected",
+      mood: selectedMood ? selectedMood-3 : "Not selected",
       affects: selectedAffects.length > 0 ? selectedAffects : ["None"],
       message: message !== "" ? message : "No message",
     };
