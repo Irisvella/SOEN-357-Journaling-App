@@ -10,6 +10,7 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 function WelcomePage({ navigation }) {
+ 
   return (
     <ScrollView style={styles.scrollViewContainer}>
       <View style={styles.container}>
@@ -25,12 +26,12 @@ function WelcomePage({ navigation }) {
         <Text style={styles.sectionTitle}>Guided Prompts</Text>
         <View style={styles.guidedPromptsContainer}>
           {/* Guided prompt box 1 */}
-          <TouchableOpacity style={styles.guidedPromptBox} onPress={() => { /* Handle onPress */ }}>
+          <TouchableOpacity style={styles.guidedPromptBox} onPress={() => navigation.navigate("JournalEntryPageScreen")}>
             <Text style={styles.guidedPromptText}>I write this for...</Text>
           </TouchableOpacity>
 
           {/* Guided prompt box 2 */}
-          <TouchableOpacity style={styles.guidedPromptBox} onPress={() => { /* Handle onPress */ }}>
+          <TouchableOpacity style={styles.guidedPromptBox1} onPress={() => navigation.navigate("JournalEntryPageScreen")}>
             <Text style={styles.guidedPromptText}>This is the journ...</Text>
           </TouchableOpacity>
         </View>
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
     borderBottomEndRadius: 30,
     borderBottomStartRadius: 30,
     overflow: 'hidden', // Ensures the image corners are also rounded
-    marginBottom: 20, // Space between this section and the next
+    // Space between this section and the next
   },
   welcomeTitle: {
     fontSize: 26,
@@ -124,8 +125,8 @@ const styles = StyleSheet.create({
     // resizeMode: 'cover' might be better if you don't want the image to be scaled disproportionately
     marginTop: 20,
     // If you have an image with rounded corners:
-    borderBottomEndRadius: 30,
-    borderBottomStartRadius: 30,
+    borderTopEndRadius: 30,
+    borderTopStartRadius: 30,
   },
 
   headerbox: {
@@ -145,7 +146,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   guidedPromptBox: {
-    backgroundColor: '#FEEFDD',
+    backgroundColor: '#FFF0DB',
     borderRadius: 20,
     padding: 20,
     width: '45%', // Using a percentage here to ensure it fits within the container alongside the other box.
@@ -158,10 +159,27 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
   },
+
+  guidedPromptBox1:{
+    backgroundColor: '#F9EEED',
+    borderRadius: 20,
+    padding: 20,
+    width: '45%', // Using a percentage here to ensure it fits within the container alongside the other box.
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 5, // Adds elevation for Android
+    // Add shadows for iOS:
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+
   guidedPromptText: {
     color: '#333',
     fontSize: 16,
     textAlign: 'center',
+   
   },
   // ... any additional styles .
 
@@ -203,11 +221,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#FFEBEE', // Or use the appropriate color for the bar
+    backgroundColor: '#FAD0C5', // Or use the appropriate color for the bar
     borderRadius: 30,
     margin: 20,
     paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
   navItem: {
     alignItems: 'center',
