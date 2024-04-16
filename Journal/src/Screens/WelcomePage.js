@@ -7,58 +7,61 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 function WelcomePage({ navigation }) {
   return (
     <ScrollView style={styles.scrollViewContainer}>
       <View style={styles.container}>
-        <Text style={styles.title}>Welcome back SARAH !</Text>
-
-        <Image
-          source={require("../../assets/images/welcome.png")}
-          style={styles.headerbox}
-        />
+        {/* Welcome section */}
+        <View style={styles.welcomeSection}>
+          <Text style={styles.welcomeTitle}>Welcome back SARAH !</Text>
+          <Image
+            source={require("../../assets/images/welcome.png")}
+            style={styles.headerImage}
+          />
+        </View>
 
         <Text style={styles.sectionTitle}>Guided Prompts</Text>
-        <View style={styles.entryContainer} >
+        <View style={styles.guidedPromptsContainer}>
+          {/* Guided prompt box 1 */}
+          <TouchableOpacity style={styles.guidedPromptBox} onPress={() => { /* Handle onPress */ }}>
+            <Text style={styles.guidedPromptText}>I write this for...</Text>
+          </TouchableOpacity>
 
-        {/* This is where you would map through your entries */}
-        <TouchableOpacity style={styles.entry} onPress={() => navigation.navigate("JournalEntryPageScreen")}>
-          <Text style={styles.entryTitle}>Today's journal entry</Text>
-          <Text>April 5th, 2024</Text>
-          <Text style={styles.hashtags}>vacation #bless #camping</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.entry} onPress={() => navigation.navigate("JournalEntryPageScreen")}>
-          <Text style={styles.entryTitle}>Today's journal entry</Text>
-          <Text>April 5th, 2024</Text>
-          <Text style={styles.hashtags}>vacation #bless #camping</Text>
-        </TouchableOpacity>
+          {/* Guided prompt box 2 */}
+          <TouchableOpacity style={styles.guidedPromptBox} onPress={() => { /* Handle onPress */ }}>
+            <Text style={styles.guidedPromptText}>This is the journ...</Text>
+          </TouchableOpacity>
         </View>
-    
+
         
         
-        <Text style={styles.sectionTitle}>Start a new one</Text>
+        <View style={styles.newSection}>
+          <Text style={styles.newSectionTitle}>Start a new one</Text>
           <TouchableOpacity
-            style={styles.fab}
+            style={styles.newSectionButton}
             onPress={() => navigation.navigate("JournalEntryPageScreen")}
           >
-            <Text style={styles.fabIcon}>+</Text>
-          </TouchableOpacity>
-        
-
-        {/* Navigation Links */}
-        <View style={styles.navigationLinks}>
-          <TouchableOpacity onPress={() => navigation.navigate("Goals")}>
-            <Text>Goals</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("JournalEntriesScreen")}>
-            <Text>Journal Entries</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("MoodTracker")}>
-            <Text>Mood Tracker</Text>
+            <Text style={styles.newSectionButtonText}>+</Text>
           </TouchableOpacity>
         </View>
-        
+
+         {/* Navigation Bar */}
+         <View style={styles.navBar}>
+          <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate("Goals")}>
+            <Icon name="target" size={24} color="#563d2d" />
+            <Text style={styles.navText}>Goals</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate("JournalEntriesScreen")}>
+            <Icon name="book" size={24} color="#563d2d" />
+            <Text style={styles.navText}>Journal entries</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate("MoodTracker")}>
+            <Icon name="mood" size={24} color="#563d2d" />
+            <Text style={styles.navText}>Mood tracker</Text>
+          </TouchableOpacity>
+        </View>
         
       </View>
     </ScrollView>
@@ -99,6 +102,32 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 5,
   },
+
+  welcomeSection: {
+    width: '100%',
+    alignItems: 'center',
+    backgroundColor: '#FFF6EF',
+    borderBottomEndRadius: 30,
+    borderBottomStartRadius: 30,
+    overflow: 'hidden', // Ensures the image corners are also rounded
+    marginBottom: 20, // Space between this section and the next
+  },
+  welcomeTitle: {
+    fontSize: 26,
+    color: '#563d2d',
+    fontWeight: 'bold',
+    marginTop: 40,
+  },
+  headerImage: {
+    width: '100%',
+    height: 200,
+    // resizeMode: 'cover' might be better if you don't want the image to be scaled disproportionately
+    marginTop: 20,
+    // If you have an image with rounded corners:
+    borderBottomEndRadius: 30,
+    borderBottomStartRadius: 30,
+  },
+
   headerbox: {
     width: '100%',
     height: 200,
@@ -106,37 +135,94 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginTop: 20,
   },
-  entryContainer: {
+
+
+  guidedPromptsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
     width: '100%',
-    flexDirection: "column",
-   
+    paddingHorizontal: 20,
+    marginTop: 20,
   },
-  entry: {
-    flexDirection: "row",
-    backgroundColor: "#fff",
+  guidedPromptBox: {
+    backgroundColor: '#FEEFDD',
     borderRadius: 20,
     padding: 20,
-    marginHorizontal: 20,
-    marginTop: 10,
-    shadowColor: "#000",
+    width: '45%', // Using a percentage here to ensure it fits within the container alongside the other box.
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 5, // Adds elevation for Android
+    // Add shadows for iOS:
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 6,
-    shadowOpacity: 0.1,
-    elevation: 3,
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
-  navigationLinks: {
-    
+  guidedPromptText: {
+    color: '#333',
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  // ... any additional styles .
+
+
+  newSection: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    paddingHorizontal: 20,
     marginTop: 20,
-    backgroundColor: "#DAA520", 
-    flexDirection: "row",
-
-    justifyContent: "space-around",
-    gap:20,
-    padding: 15,
-    borderTopColor: "#EEE",
-    borderRadius: 20,
-
   },
+  newSectionTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#563d2d', // Match the color to your theme
+  },
+  newSectionButton: {
+    backgroundColor: '#563d2d', // Match the color to your theme
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 3, // Shadow for Android
+    // Shadows for iOS:
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  newSectionButtonText: {
+    fontSize: 30,
+    color: 'white',
+    lineHeight: 30, // Adjust the line height to vertically center the plus sign
+  },
+
+  navBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#FFEBEE', // Or use the appropriate color for the bar
+    borderRadius: 30,
+    margin: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+  navItem: {
+    alignItems: 'center',
+    
+    
+  },
+  navText: {
+    fontSize: 14,
+    color: '#563d2d',
+    marginTop: 5,
+    marginHorizontal: 10,
+    
+  },
+
+
   fabContainer: {
     position: 'absolute',
     bottom: 20,
