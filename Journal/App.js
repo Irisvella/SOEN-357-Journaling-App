@@ -8,6 +8,9 @@ import MoodTrackerPage from './src/Screens/MoodTrackerPage'; // Adjust path as n
 import JournalEntriesScreen from './src/Screens/JournalEntriesScreen'; // Adjust path as necessary
 import JournalEntryPageScreen from './src/Screens/JournalEntryPageScreen'; // Adjust path as necessary
 import { StatusBar } from "expo-status-bar";
+import Goals from './src/Screens/Goals';
+import Goal1 from './src/Screens/Goal1';
+import createGoal from './src/Screens/createGoal';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +24,9 @@ function App() {
         <Stack.Screen name="JournalEntriesScreen" component={JournalEntriesScreen} options={{ title: 'Journal Entries' }} />
         <Stack.Screen name="JournalEntryPageScreen" component={JournalEntryPageScreen} options={{ title: 'Journal Entry Page' }} />
         <Stack.Screen name="MoodTracker" component={MoodTrackerPage} options={{ title: 'Mood Tracker' }} />
+        <Stack.Screen name="Goals" component={Goals}/>
+        <Stack.Screen name="Goal1" component={Goal1}/>
+        <Stack.Screen name="createGoal" component={createGoal} options={{title: 'Create a goal'}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

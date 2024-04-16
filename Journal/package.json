@@ -19,6 +19,7 @@
     "@types/react": "~18.2.45",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "datetimepicker": "^0.1.39",
     "expo": "~50.0.14",
     "expo-image": "~1.10.6",
     "expo-status-bar": "~1.11.1",
