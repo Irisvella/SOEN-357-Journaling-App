@@ -11,20 +11,9 @@ import {
 
 
 function createGoal({navigation}) {
-    const [selectedMood, setSelectedMood] = useState(null);
-  const [selectedAffects, setSelectedAffects] = useState([]);
+
   const [message, setMessage] = useState('');
-  const [customLabel, setCustomLabel] = useState('');
-  const [moodEntry, setMoodEntry] = useState(null);
-  const saveEntry = () => {
-    const moodEntry = {
-      mood: selectedMood ? selectedMood-2 : "Not selected",
-      affects: selectedAffects.length > 0 ? selectedAffects : ["None"],
-      message: message !== "" ? message : "No message",
-    };
-    setMoodEntry(moodEntry);
-    setShowMoodEntry(true);
-    console.log("Saved Mood Entry:", moodEntry);
+  const submitGoal = () => {
     navigation.navigate("Goals")
     
   };
@@ -37,7 +26,7 @@ function createGoal({navigation}) {
 
 
       <View style={styles.textInputContainer}>
-        <Text style={styles.textInputLabel}>Let's Write About it</Text>
+        <Text style={styles.textInputLabel}>What is your new goal?</Text>
         <TextInput
           style={styles.textInput}
           placeholder="Type your message here"
@@ -48,8 +37,8 @@ function createGoal({navigation}) {
       </View>
 
       <View style={styles.saveButtonContainer}>
-        <TouchableOpacity style={styles.saveButton} onPress={saveEntry}>
-          <Text style={styles.saveButtonText}>Save Entry</Text>
+        <TouchableOpacity style={styles.saveButton} onPress={submitGoal}>
+          <Text style={styles.saveButtonText}>Save Goal</Text>
         </TouchableOpacity>
       </View>
 
