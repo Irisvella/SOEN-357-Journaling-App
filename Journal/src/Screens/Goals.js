@@ -17,7 +17,7 @@ function Goals({navigation}) {
             <ScrollView vertical style={styles.background}>
                 <View style={styles.headerContainer}>
                     <Text style={styles.header}>
-                        Set a Goal
+                        Goals list
                     </Text>
                 </View>
                 <View style={styles.guidedPromptsContainer}>
@@ -35,11 +35,6 @@ function Goals({navigation}) {
                     </View>
                   </View>
                 </TouchableOpacity>
-                <View style={styles.prompt1}>
-                  <TouchableOpacity onPress={() => navigation.navigate("GuidedJournalPage")}>
-                  <Text style={styles.promptText}>This is the journal...</Text>
-                  </TouchableOpacity>
-                </View>
                 <TouchableOpacity
                 style={styles.fab}
                 onPress={() => navigation.navigate("createGoal")}>
