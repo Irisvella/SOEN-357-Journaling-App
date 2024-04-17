@@ -17,10 +17,6 @@ const GuidedJournalPage = ({ navigation }) => {
     <ScrollView style={styles.background}>
       <View style={styles.headerbox}>
         <Text style={styles.header}>Guided Journals</Text>
-        <Button
-          title="Back to Welcome"
-          onPress={() => navigation.goBack()}
-        />
       </View>
       <View style={styles.container}>
         {cardData.map((card, index) => (
