@@ -26,13 +26,13 @@ function WelcomePage({ navigation }) {
         <Text style={styles.sectionTitle}>Guided Prompts</Text>
         <View style={styles.guidedPromptsContainer}>
           {/* Guided prompt box 1 */}
-          <TouchableOpacity style={styles.guidedPromptBox} onPress={() => navigation.navigate("JournalEntryPageScreen")}>
-            <Text style={styles.guidedPromptText}>I write this for...</Text>
+          <TouchableOpacity style={styles.guidedPromptBox} onPress={() => navigation.navigate("GuidedJournalPage")}>
+            <Text style={styles.guidedPromptText}>Today, I fell like...</Text>
           </TouchableOpacity>
 
           {/* Guided prompt box 2 */}
-          <TouchableOpacity style={styles.guidedPromptBox1} onPress={() => navigation.navigate("JournalEntryPageScreen")}>
-            <Text style={styles.guidedPromptText}>This is the journ...</Text>
+          <TouchableOpacity style={styles.guidedPromptBox1} onPress={() => navigation.navigate("GuidedJournalPage")}>
+            <Text style={styles.guidedPromptText}>Something I enjoyed today was...</Text>
           </TouchableOpacity>
         </View>
 

@@ -1,6 +1,5 @@
-// src/screens/GuidedJournalPage.js
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button, TouchableOpacity } from 'react-native';
 
 const cardData = [
     { title: "Quick Guide", desc: "Follow this guide to record your day easily!" },
@@ -10,6 +9,10 @@ const cardData = [
 ];
 
 const GuidedJournalPage = ({ navigation }) => {
+  const handleCardPress = () => {
+    navigation.navigate("JournalEntryPageScreen");
+  };
+
   return (
     <ScrollView style={styles.background}>
       <View style={styles.headerbox}>
@@ -21,10 +24,12 @@ const GuidedJournalPage = ({ navigation }) => {
       </View>
       <View style={styles.container}>
         {cardData.map((card, index) => (
-          <View key={index} style={styles[`card${index + 1}`]}>
-            <Text style={styles.title}>{card.title}</Text>
-            <Text style={styles.desc}>{card.desc}</Text>
-          </View>
+          <TouchableOpacity key={index} onPress={handleCardPress}>
+            <View style={styles[`card${index + 1}`]}>
+              <Text style={styles.title}>{card.title}</Text>
+              <Text style={styles.desc}>{card.desc}</Text>
+            </View>
+          </TouchableOpacity>
         ))}
       </View>
     </ScrollView>
